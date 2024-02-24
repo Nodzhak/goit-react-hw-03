@@ -1,0 +1,26 @@
+.contactList {
+    list-style: none;
+    padding: 0;
+  }
+
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contactInfo {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .deleteButton {
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
