@@ -1,8 +1,10 @@
 import React from 'react';
 import { Field, Form, Formik, ErrorMessage } from 'formik';
+import { useId } from 'react';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
 import styles from './ContactForm.module.css';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsSlice';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3).max(50).required('Required'),
@@ -11,12 +13,13 @@ const FeedbackSchema = Yup.object().shape({
 
 const initialValues = { name: '', number: '' };
 
-const ContactForm = ({ onAddContact }) => {
-  const nameFieldId = nanoid(9); 
-  const numberFieldId = nanoid(9);
+export default function ContactForm () {
+  const dispatch = useDispatch();
+  const nameFieldId = useId();
+  const numberFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    onAddContact({ id: nanoid(9), name: values.name, number: values.number });
+    dispatch(addContact({ ...values }));
     actions.resetForm();
   };
 
@@ -41,5 +44,4 @@ const ContactForm = ({ onAddContact }) => {
   );
 };
 
-export default ContactForm;
 
