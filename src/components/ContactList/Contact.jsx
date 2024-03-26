@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ContactList.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
+import { deleteContact } from '../../redux/contactsOps';
 
 export default function Contact ({ contact }) {
   if (!contact) {
@@ -27,5 +27,3 @@ export default function Contact ({ contact }) {
     </>
   );
 };
-
-
